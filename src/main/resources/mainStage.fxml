@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane prefHeight="507.0" prefWidth="713.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.AlexKRylov.Controller">
+    <children>
+        <Pane prefHeight="510.0" prefWidth="713.0">
+            <children>
+                <ListView fx:id="fileChooser" layoutX="333.0" layoutY="57.0" prefHeight="200.0" prefWidth="365.0" />
+                <TextArea fx:id="sqlArea" layoutX="25.0" layoutY="14.0" prefHeight="443.0" prefWidth="292.0" />
+                <TextField fx:id="inColumn" layoutX="333.0" layoutY="14.0" prefHeight="25.0" prefWidth="107.0" />
+                <TextField fx:id="outColumn" layoutX="468.0" layoutY="14.0" prefHeight="25.0" prefWidth="107.0" />
+                <Button fx:id="refreshButton" layoutX="619.0" layoutY="14.0" mnemonicParsing="false" onAction="#onClickRefresh" prefHeight="25.0" prefWidth="77.0" text="Обновить" />
+                <Button fx:id="filesDir" layoutX="333.0" layoutY="432.0" mnemonicParsing="false" onAction="#onClickOpenDir" prefHeight="25.0" prefWidth="171.0" text="Директория с файлами" />
+                <Button fx:id="startButton" layoutX="522.0" layoutY="432.0" mnemonicParsing="false" onAction="#onClickConnect" prefHeight="25.0" prefWidth="175.0" text="Start" />
+                <ListView fx:id="connView" layoutX="333.0" layoutY="304.0" prefHeight="115.0" prefWidth="365.0" />
+                <Label layoutX="333.0" layoutY="273.0" prefHeight="17.0" prefWidth="148.0" text="Соединение:" />
+            <ProgressBar fx:id="progressBar" layoutX="25.0" layoutY="467.0" prefHeight="35.0" prefWidth="672.0" progress="0.0" />
+            <Button fx:id="txtButton" layoutX="622.0" layoutY="269.0" mnemonicParsing="false" onAction="#onClickOpenTxt" text="Connect.txt" />
+            </children>
+        </Pane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
