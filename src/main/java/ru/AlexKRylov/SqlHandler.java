@@ -18,8 +18,7 @@ import java.sql.*;
 
 public class SqlHandler extends Task<Void> {
     private String url, sql, inParameter, outParameter, filePath, ext;
-    Connection connection;
-    PreparedStatement preparedStatement;
+    private Connection connection;
 
     public SqlHandler(String url, String sql, String inParameter, String outParameter, String filePath, String ext) {
         this.url = url;
@@ -33,7 +32,7 @@ public class SqlHandler extends Task<Void> {
     private void action() {
         try {
             connection = Connector.connectToDb(url);
-            preparedStatement = null;
+            PreparedStatement preparedStatement = null;
             preparedStatement = connection.prepareStatement(sql);
             assert ext != null;
             if (ext.equals(".xlsx")) {

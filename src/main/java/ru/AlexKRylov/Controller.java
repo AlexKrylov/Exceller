@@ -76,18 +76,26 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void onClickOpenDir() throws IOException {
-        String path = System.getProperty("user.dir") + "/files";
-        Desktop.getDesktop().open(new File(path));
+    public void onClickOpenDir() {
+        try {
+            String path = System.getProperty("user.dir") + "/files";
+            Desktop.getDesktop().open(new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void onClickOpenTxt() throws IOException {
-        String path = System.getProperty("user.dir") + "/connect.txt";
-        Desktop.getDesktop().open(new File(path));
+    public void onClickOpenTxt() {
+        try {
+            String path = System.getProperty("user.dir") + "/connect.txt";
+            Desktop.getDesktop().open(new File(path));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    public void onClickRefresh() throws IOException {
+    public void onClickRefresh() {
         fileChooser.getItems().clear();
         connView.getItems().clear();
         fileChooser.getItems().addAll(AddList.fileList());
@@ -101,11 +109,7 @@ public class Controller implements Initializable {
         sqlArea.setWrapText(true);
         inColumn.textProperty().addListener((observable, oldValue, newValue) -> in = newValue);
         outColumn.textProperty().addListener((observable, oldValue, newValue) -> out = newValue);
-        try {
-            connView.getItems().addAll(AddList.connectList());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        connView.getItems().addAll(AddList.connectList());
     }
 
     private static String getFileExtension(String file) {

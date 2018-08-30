@@ -19,17 +19,21 @@ public class AddList {
         return list;
     }
 
-    public static ArrayList<String> connectList() throws IOException {
+    public static ArrayList<String> connectList() {
         ArrayList<String> conList = new ArrayList<>();
         String path = System.getProperty("user.dir") + "/connect.txt";
-        BufferedReader reader = new BufferedReader(new FileReader(path));
-        String str;
-        while ((str = reader.readLine()) != null) {
-            if (!str.isEmpty()) {
-                conList.add(str);
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            String str;
+            while ((str = reader.readLine()) != null) {
+                if (!str.isEmpty()) {
+                    conList.add(str);
+                }
             }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        reader.close();
         return conList;
     }
 }
